@@ -74,6 +74,9 @@
                 # code...
                 break;
         }
+    }else if(isset($_GET['act'])){
+        // 获取数据
+        
     }else {
         echo "wrong";
     }
