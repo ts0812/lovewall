@@ -40,11 +40,63 @@
                 $sql = "DELETE FROM `saylove_2017_commtents` WHERE `id` = $id";
                 echo mysqli_query($connectDBS->link, $sql);
                 break;
+            case 'editNickName':
+                # 修改昵称
+                $id = $connectDBS->test_input($_POST['id']);
+                $target = $connectDBS->test_input($_POST['target']);
+                $sql = "UPDATE `saylove_2017_posts` SET `nickName` = '$target' WHERE `id` = $id";
+                echo mysqli_query($connectDBS->link, $sql);
+                break;
+            case 'editTureName':
+                # 修改真名
+                $id = $connectDBS->test_input($_POST['id']);
+                $target = $connectDBS->test_input($_POST['target']);
+                $sql = "UPDATE `saylove_2017_posts` SET `tureName` = '$target' WHERE `id` = $id";
+                echo mysqli_query($connectDBS->link, $sql);
+                break;
+            case 'editGender':
+                # 修改性别
+                $id = $connectDBS->test_input($_POST['id']);
+                $target = $connectDBS->test_input($_POST['target']);
+                if ($target == "男") {
+                    $target = 'male';
+                } else {
+                    $target = 'female';
+                }
+                $sql = "UPDATE `saylove_2017_posts` SET `gender` = '$target' WHERE `id` = $id";
+                echo mysqli_query($connectDBS->link, $sql);
+                break;
+            case 'editToWho':
+                # 修改对象名字
+                $id = $connectDBS->test_input($_POST['id']);
+                $target = $connectDBS->test_input($_POST['target']);
+                $sql = "UPDATE `saylove_2017_posts` SET `toWho` = '$target' WHERE `id` = $id";
+                echo mysqli_query($connectDBS->link, $sql);
+                break;
+            case 'editItsGender':
+                # 修改对象性别
+                $id = $connectDBS->test_input($_POST['id']);
+                $target = $connectDBS->test_input($_POST['target']);
+                if ($target == "男") {
+                    $target = 'male';
+                } else {
+                    $target = 'female';
+                }
+                $sql = "UPDATE `saylove_2017_posts` SET `itsGender` = '$target' WHERE `id` = $id";
+                echo mysqli_query($connectDBS->link, $sql);
+                break;
             case 'editLikes':
                 # 修改点赞数
                 $id = $connectDBS->test_input($_POST['id']);
                 $targetNum = $connectDBS->test_input($_POST['targetNum']);
                 $sql = "UPDATE `saylove_2017_posts` SET `love` = $targetNum WHERE `id` = $id";
+                echo mysqli_query($connectDBS->link, $sql);
+                break;
+            case 'editEmail':
+                # 修改邮箱
+                $id = $connectDBS->test_input($_POST['id']);
+                $target = $connectDBS->test_input($_POST['target']);
+                $sql = "UPDATE `saylove_2017_posts` SET `email` = '$target' WHERE `id` = $id";
                 echo mysqli_query($connectDBS->link, $sql);
                 break;
             case 'getGuessHistory':
@@ -57,7 +109,7 @@
             case 'editContent':
                 # 修改表白内容
                 $id = $connectDBS->test_input($_POST['id']);
-                $contents = $connectDBS->test_input($_POST['contents']);
+                $contents = $connectDBS->test_input($_POST['target']);
                 $sql = "UPDATE `saylove_2017_posts` SET `contents` = '$contents' WHERE `id` = $id";
                 echo mysqli_query($connectDBS->link, $sql);
                 break;

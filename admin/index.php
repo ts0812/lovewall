@@ -33,7 +33,7 @@
         <tr>
         <th lay-data="{field:'id', width:80, sort: true}">ID</th>
         <th lay-data="{field:'nickName', width:120, sort: true, event: 'setNickName'}">昵称</th>
-        <th lay-data="{field:'trueName', width:120, sort: true, event: 'setTrueName'}">真实名字</th>
+        <th lay-data="{field:'tureName', width:120, sort: true, event: 'setTureName'}">真实名字</th>
         <th lay-data="{field:'gender', width:80, sort: true, event: 'setGender'}">性别</th>
         <th lay-data="{field:'toWho', width:120, sort: true, event: 'setToWho'}">表白对象</th>
         <th lay-data="{field:'itsGender', width:120, sort: true, event: 'setItsGender'}">对象性别</th>
@@ -55,6 +55,7 @@
     <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
     </script>
     <script src="layui/layui.all.js"></script>
+    <script src="../js/jquery-3.1.1.min.js"></script>
     <script>
         layui.use('table', function(){
             var table = layui.table;
@@ -82,7 +83,12 @@
                         data: {act:"deletePosts", id:data.id},
                         dataType: "html",
                         success: function (response) {
-                            layer.msg("删除成功！");
+                            if (response == 1) {
+                                layer.msg("删除成功！");
+                            }else{
+                                layer.msg("删除失败！");
+                            }
+                            
                         }
                     });
                     obj.del();
@@ -97,21 +103,222 @@
             //监听单元格事件
             table.on('tool(test)', function(obj){
                 var data = obj.data;
-                if(obj.event === 'setSign'){
-                layer.prompt({
-                    formType: 2
-                    ,title: '修改 ID 为 ['+ data.id +'] 的用户签名'
-                    ,value: data.sign
-                }, function(value, index){
-                    layer.close(index);
-                    
-                    //这里一般是发送修改的Ajax请求
-                    
-                    //同步更新表格和缓存对应的值
-                    obj.update({
-                    sign: value
+                if(obj.event === 'setLove'){
+                    layer.prompt({
+                        formType: 0
+                        ,title: '修改 ID 为 ['+ data.id +'] 的点赞数'
+                        ,value: data.love
+                    }, function(value, index){
+                        layer.close(index);
+                        
+                        //这里一般是发送修改的Ajax请求
+                        $.ajax({
+                            type: "post",
+                            url: "admin.php",
+                            data: {act:"editLikes", id:data.id, targetNum:value},
+                            dataType: "html",
+                            success: function (response) {
+                                if (response == 1){
+                                    layer.msg("修改成功！");
+                                }else{
+                                    layer.msg("修改失败！");
+                                }
+                            }
+                        });
+                        //同步更新表格和缓存对应的值
+                        obj.update({
+                        love: value
+                        });
                     });
-                });
+                }else if(obj.event === 'setEmail'){
+                    layer.prompt({
+                        formType: 0
+                        ,title: '修改 ID 为 ['+ data.id +'] 的邮箱'
+                        ,value: data.email
+                    }, function(value, index){
+                        layer.close(index);
+                        
+                        //这里一般是发送修改的Ajax请求
+                        $.ajax({
+                            type: "post",
+                            url: "admin.php",
+                            data: {act:"editEmail", id:data.id, target:value},
+                            dataType: "html",
+                            success: function (response) {
+                                if (response == 1){
+                                    layer.msg("修改成功！");
+                                }else{
+                                    layer.msg("修改失败！");
+                                }
+                            }
+                        });
+                        //同步更新表格和缓存对应的值
+                        obj.update({
+                        email: value
+                        });
+                    });
+                }else if(obj.event === 'setContents'){
+                    layer.prompt({
+                        formType: 2
+                        ,title: '修改 ID 为 ['+ data.id +'] 的表白内容'
+                        ,value: data.contents
+                    }, function(value, index){
+                        layer.close(index);
+                        
+                        //这里一般是发送修改的Ajax请求
+                        $.ajax({
+                            type: "post",
+                            url: "admin.php",
+                            data: {act:"editContent", id:data.id, target:value},
+                            dataType: "html",
+                            success: function (response) {
+                                if (response == 1){
+                                    layer.msg("修改成功！");
+                                }else{
+                                    layer.msg("修改失败！");
+                                }
+                            }
+                        });
+                        //同步更新表格和缓存对应的值
+                        obj.update({
+                        contents: value
+                        });
+                    });
+                }else if(obj.event === 'setNickName'){
+                    layer.prompt({
+                        formType: 0
+                        ,title: '修改 ID 为 ['+ data.id +'] 的昵称'
+                        ,value: data.nickName
+                    }, function(value, index){
+                        layer.close(index);
+                        
+                        //这里一般是发送修改的Ajax请求
+                        $.ajax({
+                            type: "post",
+                            url: "admin.php",
+                            data: {act:"editNickName", id:data.id, target:value},
+                            dataType: "html",
+                            success: function (response) {
+                                if (response == 1){
+                                    layer.msg("修改成功！");
+                                }else{
+                                    layer.msg("修改失败！");
+                                }
+                            }
+                        });
+                        //同步更新表格和缓存对应的值
+                        obj.update({
+                        nickName: value
+                        });
+                    });
+                }else if(obj.event === 'setTureName'){
+                    layer.prompt({
+                        formType: 0
+                        ,title: '修改 ID 为 ['+ data.id +'] 的真实名字'
+                        ,value: data.tureName
+                    }, function(value, index){
+                        layer.close(index);
+                        
+                        //这里一般是发送修改的Ajax请求
+                        $.ajax({
+                            type: "post",
+                            url: "admin.php",
+                            data: {act:"editTureName", id:data.id, target:value},
+                            dataType: "html",
+                            success: function (response) {
+                                if (response == 1){
+                                    layer.msg("修改成功！");
+                                }else{
+                                    layer.msg("修改失败！");
+                                }
+                            }
+                        });
+                        //同步更新表格和缓存对应的值
+                        obj.update({
+                        tureName: value
+                        });
+                    });
+                }else if(obj.event === 'setGender'){
+                    layer.prompt({
+                        formType: 0
+                        ,title: '修改 ID 为 ['+ data.id +'] 的性别'
+                        ,value: data.gender
+                    }, function(value, index){
+                        layer.close(index);
+                        
+                        //这里一般是发送修改的Ajax请求
+                        $.ajax({
+                            type: "post",
+                            url: "admin.php",
+                            data: {act:"editGender", id:data.id, target:value},
+                            dataType: "html",
+                            success: function (response) {
+                                if (response == 1){
+                                    layer.msg("修改成功！");
+                                }else{
+                                    layer.msg("修改失败！");
+                                }
+                            }
+                        });
+                        //同步更新表格和缓存对应的值
+                        obj.update({
+                        gender: value
+                        });
+                    });
+                }else if(obj.event === 'setToWho'){
+                    layer.prompt({
+                        formType: 0
+                        ,title: '修改 ID 为 ['+ data.id +'] 的表白对象'
+                        ,value: data.toWho
+                    }, function(value, index){
+                        layer.close(index);
+                        
+                        //这里一般是发送修改的Ajax请求
+                        $.ajax({
+                            type: "post",
+                            url: "admin.php",
+                            data: {act:"editToWho", id:data.id, target:value},
+                            dataType: "html",
+                            success: function (response) {
+                                if (response == 1){
+                                    layer.msg("修改成功！");
+                                }else{
+                                    layer.msg("修改失败！");
+                                }
+                            }
+                        });
+                        //同步更新表格和缓存对应的值
+                        obj.update({
+                        toWho: value
+                        });
+                    });
+                }else if(obj.event === 'setItsGender'){
+                    layer.prompt({
+                        formType: 0
+                        ,title: '修改 ID 为 ['+ data.id +'] 的表白对象的性别'
+                        ,value: data.itsGender
+                    }, function(value, index){
+                        layer.close(index);
+                        
+                        //这里一般是发送修改的Ajax请求
+                        $.ajax({
+                            type: "post",
+                            url: "admin.php",
+                            data: {act:"editItsGender", id:data.id, target:value},
+                            dataType: "html",
+                            success: function (response) {
+                                if (response == 1){
+                                    layer.msg("修改成功！");
+                                }else{
+                                    layer.msg("修改失败！");
+                                }
+                            }
+                        });
+                        //同步更新表格和缓存对应的值
+                        obj.update({
+                        itsGender: value
+                        });
+                    });
                 }
             });
         });
