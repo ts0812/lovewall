@@ -152,6 +152,7 @@
             $subArr = array();
             $subArr['id'] = $row['id'];
             $subArr['nickName'] = $row['nickName'];
+            $subArr['tureName'] = $row['tureName'];
             $subArr['toWho'] = $row['toWho'];
             $subArr['contents'] = $row['contents'];
             $subArr['love'] = $row['love'];
