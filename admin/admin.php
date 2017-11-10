@@ -73,7 +73,7 @@
                 break;
         }
     }else if(isset($_GET['page'])){
-        // 获取数据
+        // 根据页码和限制获取数据
         $maxItems = 30;
         $page = 1;
         if (isset($_GET['page'])) {

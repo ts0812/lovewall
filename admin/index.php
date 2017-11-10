@@ -75,7 +75,16 @@
                 });
                     
                 } else if(obj.event === 'del'){
-                layer.confirm('真的删除行么', function(index){
+                layer.confirm('真的删除该条表白么', function(index){
+                    $.ajax({
+                        type: "post",
+                        url: "admin.php",
+                        data: {act:"deletePosts", id:data.id},
+                        dataType: "html",
+                        success: function (response) {
+                            layer.msg("删除成功！");
+                        }
+                    });
                     obj.del();
                     layer.close(index);
                 });
