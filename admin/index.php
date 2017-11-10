@@ -60,47 +60,7 @@
         layui.use('table', function(){
             var table = layui.table;
 
-            //监听工具条
-            table.on('tool(test)', function(obj){
-                var data = obj.data;
-                if(obj.event === 'getComment'){
-                // layer.msg('ID：'+ data.id + ' 的查看操作');
-                $.ajax({
-                    type: "post",
-                    url: "admin.php",
-                    data: {act:"getComment", id:data.id},
-                    dataType: "html",
-                    success: function (response) {
-                        
-                    }
-                });
-                    
-                } else if(obj.event === 'del'){
-                layer.confirm('真的删除该条表白么', function(index){
-                    $.ajax({
-                        type: "post",
-                        url: "admin.php",
-                        data: {act:"deletePosts", id:data.id},
-                        dataType: "html",
-                        success: function (response) {
-                            if (response == 1) {
-                                layer.msg("删除成功！");
-                            }else{
-                                layer.msg("删除失败！");
-                            }
-                            
-                        }
-                    });
-                    obj.del();
-                    layer.close(index);
-                });
-                } else if(obj.event === 'getGuessHistory'){
-                // layer.alert('编辑行：<br>'+ JSON.stringify(data))
-
-                }
-            });
-
-            //监听单元格事件
+            //监听单元格事件和工具条
             table.on('tool(test)', function(obj){
                 var data = obj.data;
                 if(obj.event === 'setLove'){
@@ -319,6 +279,40 @@
                         itsGender: value
                         });
                     });
+                }else if(obj.event === 'getComment'){
+                // layer.msg('ID：'+ data.id + ' 的查看操作');
+                $.ajax({
+                    type: "post",
+                    url: "admin.php",
+                    data: {act:"getComment", id:data.id},
+                    dataType: "html",
+                    success: function (response) {
+                        
+                    }
+                });
+                    
+                } else if(obj.event === 'del'){
+                layer.confirm('真的删除该条表白么', function(index){
+                    $.ajax({
+                        type: "post",
+                        url: "admin.php",
+                        data: {act:"deletePosts", id:data.id},
+                        dataType: "html",
+                        success: function (response) {
+                            if (response == 1) {
+                                layer.msg("删除成功！");
+                            }else{
+                                layer.msg("删除失败！");
+                            }
+                            
+                        }
+                    });
+                    obj.del();
+                    layer.close(index);
+                });
+                } else if(obj.event === 'getGuessHistory'){
+                // layer.alert('编辑行：<br>'+ JSON.stringify(data))
+
                 }
             });
         });
