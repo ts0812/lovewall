@@ -154,6 +154,7 @@
             $subArr['nickName'] = $row['nickName'];
             $subArr['tureName'] = $row['tureName'];
             $subArr['toWho'] = $row['toWho'];
+            $subArr['email'] = $row['email'];
             $subArr['contents'] = $row['contents'];
             $subArr['love'] = $row['love'];
             $subArr['mtime'] = $row['mtime'];
