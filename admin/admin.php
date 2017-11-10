@@ -117,7 +117,9 @@
                 # 重新发送邮件
                 include_once '../php/email.php';
                 $send = new sendEmail();
-                // $send->sendOut($connectDBS->link, $say->uid, $email);
+                $id = $connectDBS->test_input($_POST['id']);
+                $email = $connectDBS->test_input($_POST['email']);
+                $send->sendOut($connectDBS->link, $id, $email);
 
                 break;
             default:

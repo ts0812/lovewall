@@ -313,6 +313,17 @@
                 } else if(obj.event === 'getGuessHistory'){
                 // layer.alert('编辑行：<br>'+ JSON.stringify(data))
 
+                } else if(obj.event === 'resendEmailvvvv'){
+                // layer.alert('编辑行：<br>'+ JSON.stringify(data))
+                    $.ajax({
+                        type: "post",
+                        url: "admin.php",
+                        data: {act:"resendEmail", id:data.id, email:data.email},
+                        dataType: "html",
+                        success: function (response) {
+                            layer.msg(response);
+                        }
+                    });
                 }
             });
         });
