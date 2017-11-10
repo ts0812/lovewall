@@ -13,7 +13,7 @@
 			// 配置数据库链接参数：地址、用户名、密码、数据库名
 			$host = '127.0.0.1';
 			$user = 'root';
-			$pass = '';
+			$pass = 'root';
 			$db_name = 'saylovewall';
 			$timezone="Asia/Shanghai";
 

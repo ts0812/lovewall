@@ -11,15 +11,13 @@
         echo "</script>";
         exit();
     }
+    // 引入数据库连接类
+    include_once "../php/connect.php";
+    // 实例化数据库连接
+    $connectDBS = new connectDataBase();
 
     if (isset($_POST['act'])) {
         # 请求是否包括act参数
-
-        // 引入数据库连接类
-        include_once "../php/connect.php";
-        // 实例化数据库连接
-        $connectDBS = new connectDataBase();
-
         $act = $connectDBS->test_input($_POST['act']);
         switch ($act) {
             case 'getPosts':
@@ -74,9 +72,64 @@
                 # code...
                 break;
         }
-    }else if(isset($_GET['act'])){
+    }else if(isset($_GET['page'])){
         // 获取数据
-        
+        $maxItems = 30;
+        $page = 1;
+        if (isset($_GET['page'])) {
+            # 页数
+            $page = $connectDBS->test_input($_GET['page']);
+        }
+        if (isset($_GET['limit'])) {
+            # 需要的表白个数
+            $maxItems = $connectDBS->test_input($_GET['limit']);
+        }
+        // 获取总数据
+        //获取数据总数
+        $total_sql = "SELECT COUNT(*) FROM `saylove_2017_posts` where isDisplay = '0'";
+        $total_result = mysqli_fetch_array(mysqli_query($connectDBS->link,$total_sql));
+        $total = $total_result[0];
+
+        $page_later = ($page-1)*$maxItems;
+        // 按照时间倒序排序
+        $mysql = "SELECT * FROM `saylove_2017_posts` WHERE `isDisplay` = '0' ORDER BY `mtime` DESC LIMIT {$page_later},{$maxItems}";
+        $arr_address = mysqli_query($connectDBS->link, $mysql);
+        // 组装前端所需要的json格式
+        $posts = array('code' => 0, 'msg'=> '', 'count'=> $total);
+        while ($row = mysqli_fetch_assoc($arr_address)){
+            $subArr = array();
+            $subArr['id'] = $row['id'];
+            $subArr['nickName'] = $row['nickName'];
+            $subArr['toWho'] = $row['toWho'];
+            $subArr['contents'] = $row['contents'];
+            $subArr['love'] = $row['love'];
+            $subArr['mtime'] = $row['mtime'];
+            if ($row['gender'] == "male") {
+                $subArr['gender'] = "男";
+            } else {
+                $subArr['gender'] = "女";
+            }
+            if ($row['itsGender'] == "male") {
+                $subArr['itsGender'] = "男";
+            } else {
+                $subArr['itsGender'] = "女";
+            }
+            if ($row['isDisplay'] == 0) {
+                $subArr['isDisplay'] = "显示";
+            } else {
+                $subArr['isDisplay'] = "隐藏";
+            }
+            if ($row['isSended'] == 0) {
+                $subArr['isSended'] = "未发送";
+            } else if($row['isSended'] == 1) {
+                $subArr['isSended'] = "发送成功";
+            }else{
+                $subArr['isSended'] = "发送失败";
+            }
+            $subArr['ip'] = $row['ip'];
+            $posts['data'][] = $subArr;
+        }
+        echo json_encode($posts);
     }else {
         echo "wrong";
     }
