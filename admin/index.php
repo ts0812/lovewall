@@ -313,7 +313,7 @@
                 } else if(obj.event === 'getGuessHistory'){
                 // layer.alert('编辑行：<br>'+ JSON.stringify(data))
 
-                } else if(obj.event === 'resendEmailvvvv'){
+                } else if(obj.event === 'resendEmail'){
                 // layer.alert('编辑行：<br>'+ JSON.stringify(data))
                     $.ajax({
                         type: "post",
