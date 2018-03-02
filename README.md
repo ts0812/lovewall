@@ -6,6 +6,9 @@
 ## 链接
 https://pingxonline.com/app/saylove/
 
+## 我的博客
+https://pingxonline.com/
+
 ## 主要特性
 - 发起表白
 - 查看表白
