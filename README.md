@@ -4,7 +4,10 @@
 于是，我就把此网站开源了，希望能对同学们有帮助。
 
 ## 链接
-https://pingxonline.com/app/saylove/
+https://pingxonline.com/app/saylove/  
+
+## 新项目
+最美军训照，“最美表情”评选，照片表白墙，线上投票H5应用 https://pingxonline.com/app/bestjunxun/  
 
 ## 我的博客
 https://pingxonline.com/
