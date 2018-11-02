@@ -1,15 +1,16 @@
 ## 起源
 起初是给**广西科技大学**易班发展中心的光棍节活动开发的一个网站，活动结束后发现效果还不错，同学们的响应很热烈，而且在广西内的高校内也是好评不断。
 
-于是，我就把此网站开源了，希望能对同学们有帮助。
+于是，我就把此网站开源了，希望能对同学们有帮助。  
 
-## 链接
+注意：该项目为在校内的早期作品，很多地方还不够成熟和完善。
+
+## 演示链接
 https://pingxonline.com/app/saylove/  
 
 ## 新项目
 最美军训照，“最美表情”评选，照片表白墙，线上投票H5应用 https://pingxonline.com/app/bestjunxun/  
 开源地址：https://github.com/ping-xiong/Online-photo-uploading-and-voting-application  
-
 
 ## 我的博客
 https://pingxonline.com/
@@ -32,23 +33,9 @@ https://pingxonline.com/
 ## 快速使用
 1. 导入该项目中的saylovewall.sql数据库文件。
 
-2. 修改数据库链接配置:
-      修改connect.php中的
+2. 修改 php/config.php 配置文件
 
-
-<code>        
-$host = '127.0.0.1'; // 数据库地址
-
-$user = 'root';  // 数据库用户名字
-
-$pass = '';   // 数据连接密码
-
-$db_name = 'wishingwall'; // 链接的数据的名字
-
-</code>
-
-  
-3. 邮件服务配置： email.php
+## 邮箱服务使用说明
 
   登录你自己的QQ邮箱，在设置-账户中，开启SMTP功能，记录此授权码！！重要！！
 
@@ -56,17 +43,19 @@ $db_name = 'wishingwall'; // 链接的数据的名字
 
   此邮件服务效果并不乐观，因为QQ限制最大发邮件数量，短时间内大量邮件发送出去会被退回。建议使用第三方邮件平台，付费服务。
 
-
+有条件的可以使用其他SMTP服务的邮箱。
 
 这个网站会有许许多多的BUG，欢迎大家一起来完善。
 
 ## 管理后台
 
-后台账号密码写在admin/login.php代码里面。
+后台账号密码: 在php/config.php的后台配置查看。
 
 支持数据修改，重发邮件等服务。
 
-基于layui开发
+基于layui开发  
+  
+后台地址一般为：https://pingxonline.com/app/saylove/admin  
 
 ## 更新历史
 

@@ -1,6 +1,8 @@
 <?php 
     session_start();
 
+    include_once '../php/config.php';
+
     // 账号密码验证标记，0为正确，1为错误
     $isWrong = 0;
     if (isset($_POST['username']) && isset($_POST['password'])) {
@@ -10,8 +12,8 @@
         $username = test_input($_POST['username']);
         $password = test_input($_POST['password']);
         // 指定的正确的账号和密码
-        $true_username = "saylovewall";
-        $true_password = "123456";
+        $true_username = config::$admin_config['admin_username'];
+        $true_password = config::$admin_config['admin_password'];
 
         // 比较
         if ($username == $true_username && $password == $true_password) {

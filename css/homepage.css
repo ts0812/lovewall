@@ -322,18 +322,34 @@ html body .action .ui-btn-active{
 }
 
 /*性别*/
+/*.male{*/
+  /*color: #03a9f4;*/
+  /*border-bottom: 2px dashed #03a9f4;*/
+/*}*/
+/*.female{*/
+  /*color: #ff3333;*/
+  /*border-bottom: 2px dashed #ff3333;*/
+/*}*/
+/*.secrecy{*/
+  /*color: #424242;*/
+  /*border-bottom: 2px dashed #424242;*/
+/*}*/
 .male{
-  color: #03a9f4;
-  border-bottom: 2px dashed #03a9f4;
+    color: #03a9f4;
+    border-bottom: 2px dashed #03a9f4;
+    line-height:30px;
 }
 .female{
-  color: #ff3333;
-  border-bottom: 2px dashed #ff3333;
+    color: #ff3333;
+    border-bottom: 2px dashed #ff3333;
+    line-height:30px;
 }
 .secrecy{
-  color: #424242;
-  border-bottom: 2px dashed #424242;
+    color: #424242;
+    border-bottom: 2px dashed #424242;
+    line-height:30px;
 }
+
 #link a{
   display: block;
   word-wrap: break-word;
