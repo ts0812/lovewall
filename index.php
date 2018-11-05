@@ -13,11 +13,9 @@ if ( !isset($_SESSION['posts']) ) {
     <meta charset="UTF-8">
     <title>广西科技大学表白墙2016</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" media="screen" title="no title">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.css" />
     <link rel="stylesheet" href="css/homepage.css" media="screen" title="no title">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" media="screen" />
-
 </head>
 
 <body>
@@ -123,9 +121,9 @@ if ( !isset($_SESSION['posts']) ) {
 <div class="" style="display:none;">
     <script src="https://s11.cnzz.com/z_stat.php?id=1260775797&web_id=1260775797" language="JavaScript"></script>
 </div>
-<script src="js/jquery-1.12.4.min.js"></script>
 
-<script src="js/jquery.mobile-1.4.5.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js"></script>
 <script src="js/display.js" charset="utf-8"></script>
 <script src="js/layer_mobile/layer.js"></script>
 <!-- 这里是下雪的插件，取消注释自动调用 -->

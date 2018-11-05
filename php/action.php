@@ -17,6 +17,9 @@
     // 实例化数据库连接
     $connectDBS = new connectDataBase();
 
+    // 引入配置类
+    include_once "config.php";
+
     // 获取act参数，该参数控制需要执行的功能
     $action = $connectDBS->test_input($_POST["act"]);
 
@@ -36,7 +39,7 @@
         // 表白
         // 
         // 如果posts大于3的话，则超出当前session 的生命周期内限制的表白数。防止无限post攻击
-        if(isset($_SESSION['posts']) && $_SESSION['posts'] < 3){
+        if(isset($_SESSION['posts']) && $_SESSION['posts'] < config::$base_config['max_submit_post']){
           $_SESSION['posts']=$_SESSION['posts']+1;
           include_once 'say.php';
           $nickName = $connectDBS->test_input($_POST["nickName"]);

@@ -55,7 +55,7 @@
     <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
     </script>
     <script src="layui/layui.all.js"></script>
-    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
         layui.use('table', function(){
             var table = layui.table;

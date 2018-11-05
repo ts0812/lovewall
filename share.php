@@ -33,9 +33,9 @@ function test_input($data)
     <meta charset="UTF-8">
     <title>分享</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" media="screen" title="no title">
-    <script src="js/jquery-1.12.4.min.js"></script>
-    <script src="js/jquery.mobile-1.4.5.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js"></script>
     <link rel="stylesheet" href="css/homepage.css" media="screen" title="no title">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" media="screen" />
     <script src="js/search.js" charset="utf-8"></script>
@@ -91,10 +91,14 @@ function test_input($data)
 
 POSTS;
     ?>
-    <div  id="share-bars" >
+
+    <div id="qrcode" style="text-align: center;">
+
+    </div>
+    <p style="text-align: center; color: #333333; font-size: 14px">扫码给表白点赞</p>
+    <div id="share-bars" >
         <div class="jiathis_style_m"></div>
     </div>
-
 </div>
 
 <div data-role="footer" id="footer" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
@@ -153,12 +157,20 @@ POSTS;
         <a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']; ?>"><?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']; ?></a>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
 <script type="text/javascript">
     var jiathis_config = {
         url: document.location.href,
         title: "表白墙",
         summary:"这个表白好有意思 分享给大家看看！"
-    }
+    };
+
+    // 生成二维码
+    $('#qrcode').qrcode({
+        width: 128,
+        height: 128,
+        text	: "<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']; ?>"
+    });
 </script>
 <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_m.js" charset="utf-8"></script>
 <div class="" style="display:none;">
@@ -166,5 +178,4 @@ POSTS;
 </div>
 <script src="js/layer_mobile/layer.js"></script>
 </body>
-
 </html>

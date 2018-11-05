@@ -50,7 +50,9 @@ class config
     // 基本配置
     public static $base_config = [
         // 每页显示多少条表白数
-      "max_item" => 18
+      "max_item" => 18,
+        // 限制在session有效期内的表白提交次数，防御脚本攻击
+      "max_submit_post" => 3
     ];
 
     // 后台登录账号密码
