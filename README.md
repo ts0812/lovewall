@@ -8,6 +8,9 @@
 ## 演示链接
 https://pingxonline.com/app/saylove/  
 
+## 带图片的表白墙 BY 码云 笔名无香 
+https://gitee.com/likecy/yiban_lovewall?tdsourcetag=s_pctim_aiomsg  
+
 ## 新项目
 最美军训照，“最美表情”评选，照片表白墙，线上投票H5应用 https://pingxonline.com/app/bestjunxun/  
 开源地址：https://github.com/ping-xiong/Online-photo-uploading-and-voting-application  
