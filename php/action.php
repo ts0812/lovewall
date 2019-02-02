@@ -1,8 +1,8 @@
 <?php
+
   /**
    * 入口文件
    */
-  
   // 开始记录当前用户发送的表白数，在Seesion的生命周期内，最多限制3条。
    session_start();
    if ( !isset($_SESSION['posts']) ) {
@@ -24,11 +24,14 @@
     $action = $connectDBS->test_input($_POST["act"]);
 
     // 获取用户IP，检测用户IP是否在黑名单内，在的话就退出执行。
-    $ip = $connectDBS->getIP();
+    $ip = $connectDBS->getIP();//(有问题)
+    $ip=0;
     $sql = "SELECT count(*) FROM `saylove_2017_blacklist` WHERE `ip` = '$ip'";
     $res = mysqli_query($connectDBS->link, $sql);
     $result = mysqli_fetch_array($res);
+
     $num = $result[0];
+
     if ($num != 0) {
       // 退出执行php，所有操作无效
       exit(0);
@@ -37,7 +40,7 @@
     switch ($action) {
       case 'say':
         // 表白
-        // 
+        //
         // 如果posts大于3的话，则超出当前session 的生命周期内限制的表白数。防止无限post攻击
         if(isset($_SESSION['posts']) && $_SESSION['posts'] < config::$base_config['max_submit_post']){
           $_SESSION['posts']=$_SESSION['posts']+1;
@@ -56,7 +59,7 @@
             $send->sendOut($connectDBS->link, $say->uid, $email);
           }
           //只取路径
-          $url=$_SERVER['PHP_SELF']; 
+          $url=$_SERVER['PHP_SELF'];
           $url = "./share.php?id=".$say->uid;
           echo '点击链接查看你的表白：<br><a target="_blank" href='.$url.'>戳我！</a><br>';
         }else {

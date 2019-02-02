@@ -71,7 +71,6 @@ $(document).ready(function() {
         }else{
             liked_post.push(postID);
         }
-
         $.ajax({
             url: 'php/action.php',
             type: 'POST',

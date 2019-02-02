@@ -28,11 +28,11 @@ class config
         // 邮件的主题名字
         "SMTP_NAME" => "广西科技大学2016表白墙",
         // SMTP 用户名，如果是QQ邮箱申请的则填写QQ邮箱
-        "SMTP_USERNAME" => "597914752@qq.com",
+        "SMTP_USERNAME" => "1352645017@qq.com",
         // SMTP 邮箱地址，如果是QQ邮箱申请的则填写QQ邮箱
-        "SMTP_ADRESS" => "597914752@qq.com",
+        "SMTP_ADRESS" => "1352645017@qq.com",
         // SMTP 密码，如果是QQ邮箱申请的则填写开通SMTP服务后生成的密码
-        "SMTP_PASSWORD" => "SDJKGFHSDJKGHJK",
+        "SMTP_PASSWORD" => "dltsscmokkuyjafb",
         // 分享地址，填写到能够访问该表白墙 share.php 文件的地址
         "SHARE_LINK" => "https://pingxonline.com/app/saylove/share.php",
         // 邮件标题
@@ -58,6 +58,6 @@ class config
     // 后台登录账号密码
     public static $admin_config = [
         "admin_username" => "admin",
-        "admin_password" => "admin"
+        "admin_password" => "123456"
     ];
 }

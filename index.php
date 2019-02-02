@@ -11,7 +11,7 @@ if ( !isset($_SESSION['posts']) ) {
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>广西科技大学表白墙2016</title>
+    <title>表白墙</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.css" />
     <link rel="stylesheet" href="css/homepage.css" media="screen" title="no title">
@@ -34,8 +34,8 @@ if ( !isset($_SESSION['posts']) ) {
 <!-- 页头的信息 -->
 <div id="Header" class="Header" data-role="header">
     <img src="images/logo.png" class="Header-logo" width="100%" height="400px"  alt=""/>
-    <img src="images/title.png" class="Header-title" width="250px" alt="广西科技大学表白墙" />
-    <!-- <h1>科大表白墙</h1> -->
+    <img src="images/title.png" class="Header-title" width="250px" alt="表白墙" />
+    <!-- <h1>表白墙</h1> -->
 </div>
 
 <!-- 网站主体 -->
@@ -43,9 +43,6 @@ if ( !isset($_SESSION['posts']) ) {
     <!-- 这里是表白的心跳载入logo，当表白获取成功就会覆盖这里 -->
     <img src="images/icon/heart.gif" alt="" class="loading"/>
 </div>
-<p style="text-align:center;color:#00bcd4;font-size:12px;">
-    博客链接： <a href="https://pingxonline.com/">https://pingxonline.com/</a>
-</p>
 <p style="text-align:center;color:#9e9e9e;font-size:12px;">
     蓝色下划线：男生 / 红色下划线：女生 / 黑色下划线：保密
 </p>
@@ -118,16 +115,14 @@ if ( !isset($_SESSION['posts']) ) {
     </div>
 </div>
 
-<div class="" style="display:none;">
-    <script src="https://s11.cnzz.com/z_stat.php?id=1260775797&web_id=1260775797" language="JavaScript"></script>
-</div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js"></script>
 <script src="js/display.js" charset="utf-8"></script>
 <script src="js/layer_mobile/layer.js"></script>
 <!-- 这里是下雪的插件，取消注释自动调用 -->
-<!-- <script type="text/javascript" src="js/snow.src.js"></script> -->
+<!-- <script type="text/javascript" src="js/snow.src.js"></script>-->
 </body>
 
 </html>
