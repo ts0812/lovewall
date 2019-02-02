@@ -18,7 +18,7 @@ class config
         // 数据库用户名
         "user" => 'root',
         // 数据库密码
-        "pass" => 'root',
+        "pass" => 'tans0812!',
         // 对应的数据库名字
         "db_name" => 'lovewall'
     ];
