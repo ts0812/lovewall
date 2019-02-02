@@ -33,6 +33,12 @@ $(document).ready(function() {
                     $("#email").val('');
                     $("#contents").val('');
                     $("#Hint").html(result);
+                    //提示
+                    layer.open({
+                        content: "表白成功！"
+                        ,skin: 'msg'
+                        ,time: 2 //2秒后自动关闭
+                    });
                 })
                 .fail(function() {
                     console.log("error");

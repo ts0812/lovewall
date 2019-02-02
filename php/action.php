@@ -25,7 +25,6 @@
 
     // 获取用户IP，检测用户IP是否在黑名单内，在的话就退出执行。
     $ip = $connectDBS->getIP();//(有问题)
-    $ip=0;
     $sql = "SELECT count(*) FROM `saylove_2017_blacklist` WHERE `ip` = '$ip'";
     $res = mysqli_query($connectDBS->link, $sql);
     $result = mysqli_fetch_array($res);
@@ -47,12 +46,12 @@
           include_once 'say.php';
           $nickName = $connectDBS->test_input($_POST["nickName"]);
           $trueName = $connectDBS->test_input($_POST["trueName"]);
-          $towho = $connectDBS->test_input($_POST["towho"]);
+          $toWho = $connectDBS->test_input($_POST["towho"]);
           $email = $connectDBS->test_input($_POST["email"]);
           $contents = $connectDBS->test_input($_POST["contents"]);
           $gender = $connectDBS->test_input($_POST["gender"]);
           $itsGender = $connectDBS->test_input($_POST["itsGender"]);
-          $say = new sayWords($connectDBS->link, $nickName, $trueName, $towho, $contents, $email, $ip, $gender, $itsGender);
+          $say = new sayWords($connectDBS->link, $nickName, $trueName, $toWho, $contents, $email, $ip, $gender, $itsGender);
           if ($email != "") {
             include_once 'email.php';
             $send = new sendEmail();
