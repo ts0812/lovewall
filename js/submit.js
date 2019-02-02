@@ -35,7 +35,7 @@ $(document).ready(function() {
                     $("#Hint").html(result);
                     //提示
                     layer.open({
-                        content: "表白成功！"
+                        content: result
                         ,skin: 'msg'
                         ,time: 2 //2秒后自动关闭
                     });

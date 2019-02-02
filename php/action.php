@@ -63,7 +63,7 @@
           echo '点击链接查看你的表白：<br><a target="_blank" href='.$url.'>戳我！</a><br>';
         }else {
           // 超过3条表白，则输出。无法完成表白
-          echo "你很棒棒哦？";
+          echo "超过3次，明日再来吧！";
         }
         break;
         case 'load':
