@@ -20,7 +20,7 @@ class config
         // 数据库密码
         "pass" => 'root',
         // 对应的数据库名字
-        "db_name" => 'saylovewall'
+        "db_name" => 'lovewall'
     ];
 
     // 邮件发送配置
